@@ -1,6 +1,9 @@
-import { Table } from "antd";
 import { Link } from "react-router-dom";
 import { useMarvelCharacters } from "../../../hooks/useMarvelCharacter";
+import { LayoutComponent } from "../../../components/layout";
+import { CardContainer } from "../../../components/cardContainer";
+import { Table } from "antd";
+
 
 export function CharacterList() {
     const { characters, loading, error } = useMarvelCharacters();
@@ -12,5 +15,11 @@ export function CharacterList() {
 
     if (error) return <p>{error}</p>;
 
-    return <Table columns={columns} dataSource={characters} loading={loading} rowKey="id" />;
+    return (
+        <LayoutComponent title="Personajes de Marvel">
+            <CardContainer >
+                <Table columns={columns} dataSource={characters} loading={loading} rowKey="id" />
+            </CardContainer>
+        </LayoutComponent>
+    );
 }

@@ -1,7 +1,7 @@
-import { Breadcrumbs } from "./Breadcrumbs";
-import "./Layout.css";
+import { Breadcrumbs } from "../breadCrumbs";
+import './styles/layout.css';
 
-export function Layout({ title, children }) {
+export function LayoutComponent({ title, children }) {
     return (
         <div className="layout-container">
             <Breadcrumbs title={title} />

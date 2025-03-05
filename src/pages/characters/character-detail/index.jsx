@@ -1,5 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useCharacterDetail } from "./hooks/useCharacterDetail";
+import { LayoutComponent } from "../../../components/layout";
+import { CardContainer } from "../../../components/cardContainer";
+import { ImageCharacter } from "../../../components/imageCharacter/ImageCharacter";
 
 export function CharacterDetail() {
     const { id } = useParams();
@@ -10,14 +13,14 @@ export function CharacterDetail() {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className="character-detail">
-            <h2>{character.name}</h2>
-            <img
-                src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                alt={character.name}
-                width="200"
-            />
-            <p>{character.description || "No hay descripción disponible."}</p>
-        </div>
+        <LayoutComponent title={character.name}>
+            <CardContainer>
+                <div className="character-detail">
+                    <h2>{character.name}</h2>
+                    <ImageCharacter character={character} />
+                    <p>{character.description || "No hay descripción disponible."}</p>
+                </div>
+            </CardContainer>
+        </LayoutComponent>
     );
 }
