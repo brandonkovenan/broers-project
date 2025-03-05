@@ -3,7 +3,7 @@ import { useCharacterDetail } from "./hooks/useCharacterDetail";
 import { LayoutComponent } from "../../../components/layout";
 import { CardContainer } from "../../../components/cardContainer";
 import { ImageCharacter } from "../../../components/imageCharacter";
-import "./styles/characterDetail.css";
+import "./styles/index.css";
 
 export function CharacterDetail() {
     const { id } = useParams();
