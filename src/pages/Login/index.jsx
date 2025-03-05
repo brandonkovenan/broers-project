@@ -1,72 +1,21 @@
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-import withReactContent from "sweetalert2-react-content";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Button, Input } from "antd";
 import { Form } from "antd";
+import { useLogin } from "./hooks/useLogin";
 import "./Login.css";
-import { useState, useEffect } from "react";
-
-const MySwal = withReactContent(Swal);
-const alertError = (type, title, text) => {
-    return MySwal.fire({
-        icon: type,
-        title: title,
-        text: text,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-    });
-};
 
 export function Login() {
 
-    const ENV_PASSWORD = import.meta.env.VITE_ENV_PASSWORD;
-    const ENV_EMAIL = import.meta.env.VITE_ENV_EMAIL;
+    const {
+        loading,
+        isFormValid,
+        formValues,
+        setFormValues,
+        setCaptchaValue,
+        handleLogin,
+    } = useLogin();
+
     const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-
-    const [loading, setLoading] = useState(false);
-    const [captchaValue, setCaptchaValue] = useState(null);
-    const [formValues, setFormValues] = useState({ email: "", password: "" });
-    const [isFormValid, setIsFormValid] = useState(false);
-
-    const navigate = useNavigate();
-
-    const handleLogin = (values) => {
-        setLoading(true);
-        console.log("values: ", values);
-        if (values.email === '' || values.password === '') {
-
-            return alertError("error", "Error", "Por favor completa todos los campos.");
-
-        }
-        if (!captchaValue) {
-            setLoading(false);
-            return alertError("error", "Error", "Por favor completa el reCAPTCHA.");
-        }
-
-        if (values.email !== ENV_EMAIL || values.password !== ENV_PASSWORD) {
-            setLoading(false);
-            return alertError("error", "Error", "Correo o contraseña incorrectos");
-        }
-
-        localStorage.setItem("user", JSON.stringify(values));
-        localStorage.setItem("isAuthenticated", "true");
-
-        setLoading(false);
-        navigate("/characters");
-    };
-
-    useEffect(() => {
-        const { email, password } = formValues;
-        setIsFormValid(email.trim() !== "" && password.trim() !== "" && captchaValue);
-    }, [formValues, captchaValue]);
-
-    useEffect(() => {
-        const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-        if (isAuthenticated) {
-            navigate("/characters"); // 🔥 Evita que un usuario logueado vuelva al login
-        }
-    }, []);
 
     return (
         <div className="login-container">
