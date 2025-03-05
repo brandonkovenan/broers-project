@@ -1,0 +1,19 @@
+.character-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.character-detail__description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 1.25rem;
+}
+
+.character-detail__description > span {
+  margin: 1.25rem;
+}
