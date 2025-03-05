@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "../breadCrumbs";
-import './styles/Layout.css';
+import './styles/layout.css';
 
 export function LayoutComponent({ title, children }) {
     return (
