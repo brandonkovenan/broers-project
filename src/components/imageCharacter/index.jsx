@@ -1,4 +1,4 @@
-import './styles/ImageCharacter.css';
+import './styles/imageCharacter.css';
 
 export function ImageCharacter({ character }) {
 
