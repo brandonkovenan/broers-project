@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import { Login } from "../pages/Login";
 import { CharacterList } from "../pages/characters/character-list";
 import { CharacterDetail } from "../pages/characters/character-detail";
-import { ErrorComponent } from "../pages/page-error";
+import { PageError } from "../pages/page-error";
 import { PrivateRoute } from "./PrivateRoute";
 
 export const routes = (
@@ -14,6 +14,6 @@ export const routes = (
             <Route path="/character/:id" element={<CharacterDetail />} />
         </Route>
 
-        <Route path="/*" element={<ErrorComponent />} />
+        <Route path="/*" element={<PageError />} />
     </>
 );
