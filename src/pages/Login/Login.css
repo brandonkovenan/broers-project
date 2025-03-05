@@ -1,0 +1,83 @@
+/* 🔹 Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 🔹 Contenedor principal del login */
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* 🔹 Imagen del login */
+.login-image {
+    flex: 1.5; /* Toma más espacio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 20px;
+}
+
+.login-image img {
+    width: 100%;
+    max-width: 400px; /* Ajusta el tamaño */
+    height: auto;
+}
+
+/* 🔹 Formulario del login */
+.login-form {
+    flex: 1; /* Menos espacio que la imagen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+}
+
+.login-form label {
+    margin-top: 10px;
+}
+
+.login-form input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    margin-top: 20px;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 🔹 Responsivo: Ocultar la imagen en móviles */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-image {
+        display: none;
+    }
+}
