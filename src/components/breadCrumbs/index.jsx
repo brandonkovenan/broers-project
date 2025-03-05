@@ -1,6 +1,6 @@
 import { Breadcrumb } from "antd";
 import { Link, useLocation } from "react-router-dom";
-import "./styles/breadCrumbs.css";
+import "./styles/index.css";
 
 export function Breadcrumbs({ title }) {
     const location = useLocation();

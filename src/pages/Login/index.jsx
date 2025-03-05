@@ -2,7 +2,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { Button, Input } from "antd";
 import { Form } from "antd";
 import { useLogin } from "./hooks/useLogin";
-import "./login.css";
+import "./styles/index.css";
 
 export function Login() {
 
